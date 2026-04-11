@@ -81,3 +81,37 @@ h2 {
     grid-template-rows: subgrid;
     grid-row: span 3;
 }
+
+/* Resume page styles */
+header {
+    margin-block: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid oklch(80% 3% 200);
+}
+
+section {
+    margin-block: 2em;
+}
+
+section h2 {
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 0.3em;
+}
+
+article {
+    margin-block: 1em;
+    padding-left: 1em;
+    border-left: 3px solid oklch(80% 3% 200);
+}
+
+article header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: none;
+    margin-block: 0;
+    padding-bottom: 0;
+}
+
+article h3 {
+    margin: 0;
+}
