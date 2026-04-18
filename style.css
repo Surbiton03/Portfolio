@@ -39,7 +39,7 @@ nav a:hover {
     background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
-input, textarea, button {
+input, textarea, button, select {
     font: inherit;
 }
 
@@ -116,4 +116,11 @@ article header {
 
 article h3 {
     margin: 0;
+}
+
+.color-scheme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
 }

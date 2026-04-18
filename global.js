@@ -39,3 +39,36 @@ for (let p of pages) {
     a.target = '_blank';
   }
 }
+
+// Step 4.2: Add color scheme switcher HTML
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `<label class="color-scheme">
+    Theme:
+    <select>
+      <option value="light dark">Automatic</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </label>`,
+);
+
+// Step 4.4: Make it work
+const select = document.querySelector('.color-scheme select');
+
+// Step 4.5: Define function to set color scheme
+function setColorScheme(colorScheme) {
+  document.documentElement.style.setProperty('color-scheme', colorScheme);
+  select.value = colorScheme;
+}
+
+// Step 4.5: Load saved preference on page load
+if ('colorScheme' in localStorage) {
+  setColorScheme(localStorage.colorScheme);
+}
+
+// Step 4.4 & 4.5: Listen for changes and save preference
+select.addEventListener('input', function (event) {
+  setColorScheme(event.target.value);
+  localStorage.colorScheme = event.target.value;
+});
