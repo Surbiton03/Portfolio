@@ -105,6 +105,7 @@ h2 {
     margin-block: 1em;
     border: 1px solid var(--border-color);
     gap: 1em;
+    flex: 1;
 }
 
 .legend-item {
@@ -120,6 +121,13 @@ h2 {
     border-radius: 50%;
     background-color: var(--color);
 }
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
 
 /* Resume page styles */
 header {
