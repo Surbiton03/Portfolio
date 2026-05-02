@@ -81,7 +81,14 @@ h2 {
 .projects article {
     display: grid;
     grid-template-rows: subgrid;
-    grid-row: span 3;
+    grid-row: span 4;
+}
+
+.project-year {
+    font-family: Baskerville, serif;
+    font-variant-numeric: oldstyle-nums;
+    font-style: italic;
+    color: oklch(50% 10% 200);
 }
 
 /* Resume page styles */
