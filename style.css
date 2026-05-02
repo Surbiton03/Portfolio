@@ -91,6 +91,12 @@ h2 {
     color: oklch(50% 10% 200);
 }
 
+#projects-pie-plot {
+    max-width: 20em;
+    margin-block: 2em;
+    overflow: visible;
+}
+
 /* Resume page styles */
 header {
     margin-block: 1em;
