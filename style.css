@@ -102,7 +102,7 @@ h2 {
     grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
     list-style: none;
     padding: 1em;
-    margin: 0;
+    margin-block: 1em;
     border: 1px solid var(--border-color);
     gap: 1em;
 }
