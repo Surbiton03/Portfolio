@@ -97,6 +97,17 @@ h2 {
     margin-block: 2em;
     overflow: visible;
     flex-shrink: 1;
+
+    path {
+        transition: 300ms;
+        cursor: pointer;
+    }
+
+    &:has(path:hover) {
+        path:not(:hover) {
+            opacity: 0.5;
+        }
+    }
 }
 
 .legend {
