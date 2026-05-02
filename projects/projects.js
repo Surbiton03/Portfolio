@@ -11,6 +11,7 @@ projectsTitle.textContent = `Projects (${projects.length})`;
 
 let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
+let selectedIndex = -1;
 
 function renderPieChart(projectsGiven) {
   let newRolledData = d3.rollups(
@@ -28,16 +29,29 @@ function renderPieChart(projectsGiven) {
   let newArcs = newArcData.map((d) => arcGenerator(d));
 
   // Clear svg and legend
-  let newSVG = d3.select('svg');
-  newSVG.selectAll('path').remove();
+  let svg = d3.select('svg');
+  svg.selectAll('path').remove();
   d3.select('.legend').selectAll('li').remove();
 
   // Render pie chart
   newArcs.forEach((arc, idx) => {
-    newSVG
+    svg
       .append('path')
       .attr('d', arc)
-      .attr('fill', colors(idx));
+      .attr('fill', colors(idx))
+      .on('click', () => {
+        selectedIndex = selectedIndex === idx ? -1 : idx;
+
+        svg
+          .selectAll('path')
+          .attr('class', (_, i) => i === selectedIndex ? 'selected' : '');
+
+        d3.select('.legend')
+          .selectAll('li')
+          .attr('class', (_, i) =>
+            i === selectedIndex ? 'legend-item selected' : 'legend-item'
+          );
+      });
   });
 
   // Render legend
