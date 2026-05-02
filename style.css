@@ -97,6 +97,30 @@ h2 {
     overflow: visible;
 }
 
+.legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+    list-style: none;
+    padding: 1em;
+    margin: 0;
+    border: 1px solid var(--border-color);
+    gap: 1em;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.swatch {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: var(--color);
+}
+
 /* Resume page styles */
 header {
     margin-block: 1em;
