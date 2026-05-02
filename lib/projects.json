@@ -7,7 +7,7 @@
   },
   {
     "title": "Digital Portfolio Platform",
-    "year": "2025",
+    "year": "2026",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Developed a digital portfolio platform with built-in analytics to identify viewer navigation patterns."
   },
@@ -24,13 +24,13 @@
     "description": "Led a 48-hour design sprint for a mobile platform using Figma, recognized by leaders from Google and Microsoft."
   },
   {
-    "title": "University Marketing Analytics",
+    "title": "UCSD CSE Dept. Marketing Analytics",
     "year": "2024",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Automated synthesis of engagement metrics into quarterly analytics reports using Python and Excel."
   },
   {
-    "title": "UCSD Newsletter Campaign",
+    "title": "UCSD CSE Dept. Newsletter Campaign",
     "year": "2024",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Managed a monthly newsletter for 2,000+ subscribers, achieving a 33% open rate through KPI monitoring."
@@ -61,13 +61,13 @@
   },
   {
     "title": "Personal Portfolio Website",
-    "year": "2024",
+    "year": "2026",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Built a personal portfolio website using HTML, CSS, and JavaScript, hosted on GitHub Pages."
   },
   {
     "title": "Kommon Society Marketing",
-    "year": "2024",
+    "year": "2026",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Led marketing initiatives at Kommon Society, a liberal arts professional organization affiliated with Korea Daily News."
   }
