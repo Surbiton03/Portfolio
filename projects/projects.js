@@ -28,12 +28,10 @@ function renderPieChart(projectsGiven) {
   let newArcData = newSliceGenerator(newData);
   let newArcs = newArcData.map((d) => arcGenerator(d));
 
-  // Clear svg and legend
   let svg = d3.select('svg');
   svg.selectAll('path').remove();
   d3.select('.legend').selectAll('li').remove();
 
-  // Render pie chart
   newArcs.forEach((arc, idx) => {
     svg
       .append('path')
@@ -51,10 +49,19 @@ function renderPieChart(projectsGiven) {
           .attr('class', (_, i) =>
             i === selectedIndex ? 'legend-item selected' : 'legend-item'
           );
+
+        if (selectedIndex === -1) {
+          renderProjects(projects, projectsContainer, 'h2');
+        } else {
+          let selectedYear = newData[selectedIndex].label;
+          let filteredProjects = projects.filter((project) =>
+            project.year === selectedYear
+          );
+          renderProjects(filteredProjects, projectsContainer, 'h2');
+        }
       });
   });
 
-  // Render legend
   let legend = d3.select('.legend');
   newData.forEach((d, idx) => {
     legend
@@ -65,7 +72,6 @@ function renderPieChart(projectsGiven) {
   });
 }
 
-// Call on page load
 renderPieChart(projects);
 
 let query = '';
