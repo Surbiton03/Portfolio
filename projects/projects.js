@@ -90,5 +90,17 @@ searchInput.addEventListener('input', (event) => {
   query = event.target.value;
   let filteredProjects = getFilteredProjects();
   renderPieChart(filteredProjects);
+  
+  // Restore selected state after pie chart redraws
+  d3.select('svg')
+    .selectAll('path')
+    .attr('class', (_, i) => i === selectedIndex ? 'selected' : '');
+
+  d3.select('.legend')
+    .selectAll('li')
+    .attr('class', (_, i) =>
+      i === selectedIndex ? 'legend-item selected' : 'legend-item'
+    );
+
   applyFilters();
 });
