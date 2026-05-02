@@ -17,8 +17,7 @@ let query = '';
 
 function getFilteredProjects() {
   return projects.filter((project) => {
-    let matchesQuery = Object.values(project).join('\n').toLowerCase().includes(query.toLowerCase());
-    return matchesQuery;
+    return Object.values(project).join('\n').toLowerCase().includes(query.toLowerCase());
   });
 }
 
@@ -41,6 +40,12 @@ function renderPieChart(projectsGiven) {
     return { value: count, label: year };
   });
 
+  // Find the index of selectedYear in the new data
+  let newSelectedIndex = selectedYear 
+    ? newData.findIndex((d) => d.label === selectedYear)
+    : -1;
+  selectedIndex = newSelectedIndex;
+
   let newSliceGenerator = d3.pie().value((d) => d.value);
   let newArcData = newSliceGenerator(newData);
   let newArcs = newArcData.map((d) => arcGenerator(d));
@@ -54,6 +59,7 @@ function renderPieChart(projectsGiven) {
       .append('path')
       .attr('d', arc)
       .attr('fill', colors(idx))
+      .attr('class', idx === selectedIndex ? 'selected' : '')
       .on('click', () => {
         selectedIndex = selectedIndex === idx ? -1 : idx;
         selectedYear = selectedIndex === -1 ? null : newData[selectedIndex].label;
@@ -77,12 +83,13 @@ function renderPieChart(projectsGiven) {
     legend
       .append('li')
       .attr('style', `--color:${colors(idx)}`)
-      .attr('class', 'legend-item')
+      .attr('class', idx === selectedIndex ? 'legend-item selected' : 'legend-item')
       .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
   });
 }
 
 renderPieChart(projects);
+applyFilters();
 
 let searchInput = document.querySelector('.searchBar');
 
@@ -90,17 +97,5 @@ searchInput.addEventListener('input', (event) => {
   query = event.target.value;
   let filteredProjects = getFilteredProjects();
   renderPieChart(filteredProjects);
-  
-  // Restore selected state after pie chart redraws
-  d3.select('svg')
-    .selectAll('path')
-    .attr('class', (_, i) => i === selectedIndex ? 'selected' : '');
-
-  d3.select('.legend')
-    .selectAll('li')
-    .attr('class', (_, i) =>
-      i === selectedIndex ? 'legend-item selected' : 'legend-item'
-    );
-
   applyFilters();
 });
