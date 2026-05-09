@@ -209,3 +209,25 @@ article h3 {
     font-size: 200%;
     margin: 0;
 }
+
+
+/* Lab 6 Displaying stats */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+    margin-block: 2em;
+}
+
+.stats dt {
+    grid-row: 1;
+    font-size: 80%;
+    text-transform: uppercase;
+    color: oklch(50% 10% 200);
+}
+
+.stats dd {
+    grid-row: 2;
+    font-size: 200%;
+    margin: 0;
+    font-weight: 300;
+}
