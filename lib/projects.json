@@ -2,7 +2,7 @@
   {
     "title": "Bikewatching",
     "year": "2026",
-    "image": "images/bikewatching.png",
+    "image": "/Portfolio/images/bikewatching.png",
     "url": "https://surbiton03.github.io/bikewatching",
     "description": "An interactive map visualization of bike traffic in the Boston area, showing BlueBike station traffic patterns and bike lanes."
   },

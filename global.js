@@ -1,4 +1,4 @@
-console.log('IT’S ALIVE!');
+console.log('IT\'S ALIVE!');
 
 function $$(selector, context = document) {
   return Array.from(context.querySelectorAll(selector));
@@ -92,10 +92,7 @@ form?.addEventListener('submit', function (event) {
 
 export async function fetchJSON(url) {
   try {
-    // Fetch the JSON file from the given URL
     const response = await fetch(url);
-    
-    console.log(response);
 
     if (!response.ok) {
       throw new Error(`Failed to fetch projects: ${response.statusText}`);
@@ -116,7 +113,9 @@ export function renderProjects(project, containerElement, headingLevel = 'h2') {
     const article = document.createElement('article');
 
     article.innerHTML = `
-      <${headingLevel}>${p.title}</${headingLevel}>
+      <${headingLevel}>
+        ${p.url ? `<a href="${p.url}" target="_blank">${p.title}</a>` : p.title}
+      </${headingLevel}>
       <img src="${p.image}" alt="${p.title}">
       <div>
         <p>${p.description}</p>
