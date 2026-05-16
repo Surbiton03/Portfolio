@@ -81,7 +81,15 @@ h2 {
 .projects article {
     display: grid;
     grid-template-rows: subgrid;
-    grid-row: span 4;
+    /* FIX 1: Updated to span 3 rows to match your JS */
+    grid-row: span 3;
+}
+
+/* FIX 2: Added constraints to prevent images from overlapping text */
+.projects article img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .project-year {
