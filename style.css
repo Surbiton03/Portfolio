@@ -354,6 +354,13 @@ dl.info[hidden]:not(:hover, :focus-within) {
   grid-column: 1;
 }
 
+#files dt small {
+    display: block;
+    font-size: 0.8em;
+    opacity: 0.5;
+    color: gray;
+}
+
 #files dd {
   grid-column: 2;
   display: flex;

@@ -284,7 +284,7 @@ function updateFileDisplay(filteredCommits) {
       }),
     );
 
-  filesContainer.select('dt > code').text((d) => d.name);
+  filesContainer.select('dt > code').html((d) => `${d.name}<small>${d.lines.length} lines</small>`);
   filesContainer
     .select('dd')
     .selectAll('div')
